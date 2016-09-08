@@ -23,7 +23,7 @@ libgcc.a%s %:if-exists(libgcc_eh.a%s)
 crtendS.o%s $libdir/crtn.o
 
 *link:
--dynamic-linker $ldso -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic}
+%{m16|m32:-m elf_i386} %{mx32:-m elf32_x86_64} -dynamic-linker $ldso -nostdlib %{shared:-shared} %{static:-static} %{rdynamic:-export-dynamic}
 
 *esp_link:
 
