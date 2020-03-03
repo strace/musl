@@ -1,6 +1,12 @@
-#define _Addr long
-#define _Int64 long
-#define _Reg long
+#if defined(__aarch64__)
+# define _Addr long
+# define _Int64 long
+# define _Reg long
+#else
+# define _Addr int
+# define _Int64 long long
+# define _Reg int
+#endif
 
 TYPEDEF __builtin_va_list va_list;
 TYPEDEF __builtin_va_list __isoc_va_list;
